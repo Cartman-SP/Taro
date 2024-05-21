@@ -133,12 +133,13 @@ export default {
   gap: 20px;
   padding: 20px;
   max-width: 600px;
-  height: 1000px;
+  height: 100vh;
   background: radial-gradient(163.29% 100% at 50.04% 0%, #010110 0%, #14062E 31.08%, #422989 55.63%, #A951D2 78.65%, #DF84E1 91.15%, #FCA5FE 100%);
 }
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .header_container {
   display: flex;
@@ -158,11 +159,11 @@ export default {
   border-radius: 25px;
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 6px 10px;
 }
 .balance {
   font-family: Poppins;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 42px;
   letter-spacing: 0.01em;

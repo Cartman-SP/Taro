@@ -1,14 +1,14 @@
 <template>
-  <MainPage msg="Welcome to Your Vue.js App"/>
+  <MatrixPage msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import MainPage from './components/MainPage.vue'
+import MatrixPage from './components/MatrixPage.vue'
 
 export default {
   name: 'App',
   components: {
-    MainPage
+    MatrixPage
   }
 }
 </script>
