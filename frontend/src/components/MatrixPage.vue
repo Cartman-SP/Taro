@@ -32,6 +32,7 @@
     </div>
     <button class="calculation">Рассчитать</button>
     <img src="../../img/Matrix.png" alt="" class="matrix_img">
+    <p class="heart_text">Карта здоровья</p>
     <table width="100%" border="0" cellspacing="2" class="tabl">
       <tbody><tr style=" font-size:12px; font-weight:bold;">
           <td style="background:#f4f4f6;" align="center" valign="middle">НАЗВАНИЕ ЧАКРЫ</td>
@@ -88,17 +89,10 @@
           <td style="background:#cccccc;" class="trans" id="n56" align="center" valign="middle">9</td>
       </tr>
     </tbody></table>
-    <div class="wrapper">
       <div class="search">
         <p class="search_head">Поиск себя:</p>
         <p class="search_subhead">Соединение мужского и женского. Выстраивание взаимоотношений. Способности, навыки, умения.</p>
       </div>
-      <div class="social">
-        <p class="social_head">Социализация:</p>
-        <p class="social_subhead">Социальная и родовая системы. Результаты и признание в социуме</p>
-      </div>
-    </div>
-    <div class="wrapper_priroda">
       <div class="priroda">
         <div class="priroda_cont">
           <p class="priroda_text">Небо:</p>
@@ -116,6 +110,10 @@
         <div class="circles">
           <p class="circle_number">1</p>
         </div>
+      </div>
+      <div class="social">
+        <p class="social_head">Социализация:</p>
+        <p class="social_subhead">Социальная и родовая системы. Результаты и признание в социуме</p>
       </div>
       <div class="priroda">
         <div class="priroda_cont">
@@ -135,7 +133,6 @@
           <p class="circle_number">1</p>
         </div>
       </div>
-    </div>
     <div class="bottom_wrap">
       <div class="wrap-left">
         <p class="search_head">Духовная гармония:</p>
@@ -153,6 +150,48 @@
         </div>
       </div>
       <p class="search_subhead">Планетарное предназначение человека</p>
+    </div>
+    <p class="transcript"> Расшифровка значений вашей<br>Матрицы судьбы</p>
+    <div class="transcript_container">
+      <div class="transcript_cards">
+        <p class="transcript_text">Визитная карточка</p>
+      </div>
+      <div class="transcript_cards">
+        <p class="transcript_text">Карма прошлого воплощения</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Главная проработка души</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Задачи души до 40 лет</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Отношения</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Деньги</p>
+      </div>
+      <div class="transcript_cards">
+        <p class="transcript_text">Точка душевного комфорта</p>
+      </div>
+      <div class="transcript_cards">
+        <p class="transcript_text">Родовые задачи</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Таланты</p>
+      </div>
+      <div class="transcript_cards">
+        <p class="transcript_text">Детско-родительские отношения</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Предназначение</p>
+      </div>
+      <div class="transcript_cards">
+        <p class="transcript_text">Персональный прогноз по годам</p>
+      </div>
+      <div class="transcript_cards_lock">
+        <p class="transcript_text">Сексуальность</p>
+      </div>
     </div>
   </div>
 </template>
@@ -182,25 +221,27 @@ export default {
   gap: 8px;
 }
 .header_text {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 28px;
-  font-weight: 700;
   line-height: 42px;
   text-align: left;
   color: #FFFFFF;
 }
 .balance_container {
-  background: #17212B;
+  background: rgba( 23, 33, 43, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
   display: flex;
   align-items: center;
-  padding: 6px 10px;
+  padding: 12px 15px;
 }
 .balance {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 20px;
-  font-weight: 700;
-  line-height: 42px;
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
@@ -211,9 +252,8 @@ export default {
   align-items: center;
 }
 .ref_balance {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 24px;
-  font-weight: 700;
   line-height: 36px;
   text-align: left;
   color: #FFFFFF;
@@ -222,18 +262,14 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 30px 20px;
-  max-width: 600px;
-  background: radial-gradient(163.29% 100% at 50.04% 0%, #010110 0%, #14062E 31.08%, #422989 55.63%, #A951D2 78.65%, #DF84E1 91.15%, #FCA5FE 100%);
 }
 .main_head{
   display: flex;
   gap: 20px;
 }
 .head_text{
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 28px;
-  font-weight: 700;
   line-height: 42px;
   letter-spacing: 0.01em;
   text-align: center;
@@ -264,56 +300,50 @@ button {
   padding: 10px 5px;
 }
 .search_head{
-  font-family: Poppins;
-  font-size: 24px;
-  font-weight: 700;
+  font-family: Mulish Semibold;
+  font-size: 30px;
   line-height: 42px;
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
 }
 .search_subhead{
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 16px;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 24px;
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
 }
 .social_head{
-  font-family: Poppins;
-  font-size: 24px;
-  font-weight: 700;
+  font-family: Mulish Semibold;
+  font-size: 30px;
   line-height: 42px;
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
 }
 .social_subhead{
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 16px;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 24px;
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
-}
-.wrapper{
-  display: flex;
-  justify-content: space-between;
 }
 .search{
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 200px;
+  max-width: 300px;
 }
 .social{
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 200px;
+  max-width: 300px;
 }
 .priroda_cont{
   display: flex;
@@ -321,7 +351,7 @@ button {
   gap: 30px;
 }
 .priroda_text{
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 24px;
   font-weight: 500;
   line-height: 16px;
@@ -336,7 +366,7 @@ button {
 }
 .circles{
   display: flex;
-  border: 2px #000000 solid;
+  border: 2px #FFFFFF solid;
   border-radius: 50%;
   height: 36px;
   justify-content: center;
@@ -345,20 +375,59 @@ button {
 }
 .priroda{
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
-}
-.wrapper_priroda{
-  display: flex;
-  justify-content: space-between;
+  gap: 15px;
 }
 .wrap-left{
   display: flex;
-  gap: 5px;
+  gap: 15px;
 }
 .bottom_wrap{
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.circle_number{
+  color: #FFFFFF;
+}
+.transcript{
+  font-family: Mulish Semibold;
+  font-size: 24px;
+  color: #FFFFFF;
+  text-align: left;
+}
+.transcript_text{
+  color: #000;
+  font-family: Mulish Regular;
+  text-align: left;
+}
+.transcript_container{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.transcript_cards_lock{
+  background: #FFFFFF url('../../img/lock.svg') no-repeat right 5px center;
+  border-radius: 5px;
+  padding: 15px;
+}
+.transcript_cards{
+  background: #FFFFFF url('../../img/next_arrow.png') no-repeat right 5px center;
+  border-radius: 5px;
+  padding: 15px;
+}
+.heart_text{
+  font-family: Mulish Semibold;
+  color: #FFFFFF;
+  text-align: left;
+  font-size: 30px;
+}
+td {
+  font-family: Mulish Regular;  
+}
+.calculation{
+  font-family: Mulish Semibold;
+  font-size: 20px;
 }
 </style>
