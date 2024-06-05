@@ -131,10 +131,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
-  max-width: 600px;
-  height: 100vh;
-  background: radial-gradient(163.29% 100% at 50.04% 0%, #010110 0%, #14062E 31.08%, #422989 55.63%, #A951D2 78.65%, #DF84E1 91.15%, #FCA5FE 100%);
 }
 .header {
   display: flex;
@@ -147,7 +143,7 @@ export default {
   gap: 8px;
 }
 .header_text {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 28px;
   font-weight: 700;
   line-height: 42px;
@@ -155,17 +151,21 @@ export default {
   color: #FFFFFF;
 }
 .balance_container {
-  background: #17212B;
+  background: rgba( 23, 33, 43, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
   display: flex;
   align-items: center;
-  padding: 6px 10px;
+  padding: 12px 15px;
 }
 .balance {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 20px;
   font-weight: 700;
-  line-height: 42px;
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
@@ -174,11 +174,16 @@ p {
   margin: 0 ;
 }
 .ref_left {
-  background: linear-gradient(338.31deg, #21D1FF 12.39%, #993CFE 70.15%);
+  background: rgba( 255, 255, 255, 0.8 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5.5px );
+  -webkit-backdrop-filter: blur( 5.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 6px 10px;
 }
 .ref {
   display: flex;
@@ -186,17 +191,14 @@ p {
   align-items: center;
 }
 .ref_text {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: Mulish Regular;
   line-height: 36px;
   text-align: left;
-  color: #FFFFFF;
+  color: #000;
 }
 .ref_balance {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 24px;
-  font-weight: 700;
   line-height: 36px;
   text-align: left;
   color: #FFFFFF;
@@ -213,51 +215,62 @@ p {
 }
 .taro {
   position: relative;
-  background: #FFFFFF;
+  background: rgba( 180, 94, 209, 0.65 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
   height: auto;
   padding: 35px 20px;
 }
 .taro_text {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 40px;
-  font-weight: 700;
   line-height: 32px;
   text-align: left;
-  color: #17212B;
+  color: #FFFFFF;
 }
 .span_taro {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 20px;
-  font-weight: 700;
   line-height: 14px;
   text-align: left;
-  color: #17212B;
+  color: #FFFFFF;
 }
 .natal {
   position: relative;
-  background: #17212B;
+  background: rgba( 180, 94, 209, 0.65 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
   padding: 35px 20px;
 }
 .natal_text {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 28px;
-  font-weight: 700;
   line-height: 32px;
   text-align: left;
   color: #FFFFFF;
 }
 .span_natal {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: Mulish Regular;
+  font-size: 24px;
   line-height: 14px;
   text-align: left;
   color: #FFFFFF;
 }
 .matrix {
-  background: #B45ED1;
+  background: rgba( 180, 94, 209, 0.65 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
   width: 100%;
   padding: 15px 20px;
@@ -265,9 +278,8 @@ p {
 }
 .matrix_text {
   color: rgba(255, 255, 255, 1);
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 28px;
-  font-weight: 600;
   line-height: 36px;
   text-align: left;
 }
@@ -290,9 +302,8 @@ p {
   right: 0;
 }
 .goroskop_text {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 32px;
-  font-weight: 700;
   line-height: 48px;
   text-align: left;
   color: #FFFFFF;
@@ -309,8 +320,6 @@ p {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  border-image-source: linear-gradient(180deg, #21D1FF 0%, #993CFE 100%);
-  background: rgba( 0, 0, 0, 0.65 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 8px );
   -webkit-backdrop-filter: blur( 8px );
@@ -320,9 +329,8 @@ p {
   min-width: 135px;
 }
 .slider_text {
-  font-family: Poppins;
+  font-family: Mulish Regular;
   font-size: 20px;
-  font-weight: 400;
   line-height: 30px;
   text-align: left;
   color: #FFFFFF;
