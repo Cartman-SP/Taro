@@ -1,17 +1,5 @@
 <template>
   <div class="main_page">
-    <div class="header">
-      <div class="header_container">
-        <img src="../../img/logo.svg" alt="">
-        <p class="header_text">Nickname</p>
-      </div>
-      <div class="balance_container">
-        <p class="balance">Пополнить</p>
-      </div>
-    </div>
-    <div class="ref">
-      <p class="ref_balance">200 руб</p>
-    </div>
     <p class="head_text">Введите дату рождения</p>
     <div class="main_head">
       <SelectPage
@@ -210,54 +198,7 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header_container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.header_text {
-  font-family: Mulish Regular;
-  font-size: 28px;
-  line-height: 42px;
-  text-align: left;
-  color: #FFFFFF;
-}
-.balance_container {
-  background: rgba( 23, 33, 43, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-}
-.balance {
-  font-family: Mulish Regular;
-  font-size: 20px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  color: #FFFFFF;
-}
-.ref {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-.ref_balance {
-  font-family: Mulish Regular;
-  font-size: 24px;
-  line-height: 36px;
-  text-align: left;
-  color: #FFFFFF;
-}
+
 .main_page {
   display: flex;
   flex-direction: column;
@@ -398,7 +339,7 @@ button {
   text-align: left;
 }
 .transcript_text{
-  color: #000;
+  color: #FFFFFF;
   font-family: Mulish Regular;
   text-align: left;
 }
@@ -408,12 +349,22 @@ button {
   gap: 15px;
 }
 .transcript_cards_lock{
-  background: #FFFFFF url('../../img/lock.svg') no-repeat right 5px center;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 180, 94, 209, 0.65 ) url('../../img/locked.svg') no-repeat right 5px center;
   border-radius: 5px;
   padding: 15px;
 }
 .transcript_cards{
-  background: #FFFFFF url('../../img/next_arrow.png') no-repeat right 5px center;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 180, 94, 209, 0.65 ) url('../../img/right.svg') no-repeat right 5px center;
   border-radius: 5px;
   padding: 15px;
 }
@@ -429,5 +380,6 @@ td {
 .calculation{
   font-family: Mulish Semibold;
   font-size: 20px;
+  height: auto;
 }
 </style>

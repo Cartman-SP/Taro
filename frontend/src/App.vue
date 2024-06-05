@@ -1,26 +1,29 @@
 <template>
   <div class="main_app">
-    <MatrixPage/>
+    <HeaderPage/>
+    <router-view></router-view>
   </div>
 
 </template>
 
 <script>
-import MatrixPage from './components/MatrixPage.vue'
+import HeaderPage from './components/HeaderPage.vue'
 export default {
   name: 'App',
   components: {
-    MatrixPage
+    HeaderPage
   }
 }
 </script>
 
 <style>
 .main_app{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   padding: 20px;
-  max-width: 600px;
   height: 100vh;
-  background: url(../img/bg1.jpg);
+  background: url(../img/bg6.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   overflow: auto;

@@ -1,17 +1,5 @@
 <template>
   <div class="main_page">
-    <div class="header">
-      <div class="header_container">
-        <img src="../../img/logo.svg" alt="">
-        <p class="header_text">Nickname</p>
-      </div>
-      <div class="balance_container">
-        <p class="balance">Пополнить</p>
-      </div>
-    </div>
-    <div class="ref">
-      <p class="ref_balance">200 руб</p>
-    </div>
     <p class="head_text">Введите дату рождения</p>
     <div class="main_head">
       <SelectPage
@@ -31,7 +19,6 @@
       />  
     </div>
     <button class="calculation">Рассчитать</button>
-    <img src="../../img/Matrix.png" alt="" class="matrix_img">
   </div>
 </template>
 
@@ -100,10 +87,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 30px 20px;
-  max-width: 600px;
-  height: 100vh;
-  background: radial-gradient(163.29% 100% at 50.04% 0%, #010110 0%, #14062E 31.08%, #422989 55.63%, #A951D2 78.65%, #DF84E1 91.15%, #FCA5FE 100%);
 }
 .main_head{
   display: flex;

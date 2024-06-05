@@ -1,32 +1,17 @@
 <template>
   <div class="main_page">
-    <div class="header">
-      <div class="header_container">
-        <img src="../../img/logo.svg" alt="">
-        <p class="header_text">Nickname</p>
-      </div>
-      <div class="balance_container">
-        <p class="balance">Пополнить</p>
-      </div>
-    </div>
-    <div class="ref">
-      <div class="ref_left">
-        <p class="ref_text">Пригласить друзей</p>
-      </div>
-      <p class="ref_balance">200 руб</p>
-    </div>
     <div class="cards">
       <div class="card_container">
-        <div class="taro">
+        <div class="taro" @click="this.$router.push('/chat')">
           <p class="taro_text">Карты<br> <span class="span_taro">ТАРО</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
-        <div class="natal">
+        <div class="natal" @click="this.$router.push('/natal')">
           <p class="natal_text">Натальная<br> <span class="span_natal">карта</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
       </div>
-      <div class="matrix">
+      <div class="matrix" @click="this.$router.push('/matrix')">
         <p class="matrix_text">Матрица<br>судьбы</p>
         <div class="circle">
           <img src="../../img/next.svg" alt="">
@@ -37,7 +22,7 @@
       <p class="goroskop_text">Гороскоп<br>по знакам зодиака</p>
     </div>
     <div class="slider">
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope')">
         <img src="../../img/Oven.svg" alt="" class="img_slider">
         <p class="slider_text">Овен</p>
       </div>
@@ -132,76 +117,8 @@ export default {
   flex-direction: column;
   gap: 20px;
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header_container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.header_text {
-  font-family: Mulish Regular;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 42px;
-  text-align: left;
-  color: #FFFFFF;
-}
-.balance_container {
-  background: rgba( 23, 33, 43, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-}
-.balance {
-  font-family: Mulish Regular;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  text-align: left;
-  color: #FFFFFF;
-}
 p {
   margin: 0 ;
-}
-.ref_left {
-  background: rgba( 255, 255, 255, 0.8 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 5.5px );
-  -webkit-backdrop-filter: blur( 5.5px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-}
-.ref {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.ref_text {
-  font-family: Mulish Regular;
-  line-height: 36px;
-  text-align: left;
-  color: #000;
-}
-.ref_balance {
-  font-family: Mulish Regular;
-  font-size: 24px;
-  line-height: 36px;
-  text-align: left;
-  color: #FFFFFF;
 }
 .cards {
   display: flex;
