@@ -3,11 +3,11 @@
     <div class="cards">
       <div class="card_container">
         <div class="taro" @click="this.$router.push('/chat')">
-          <p class="taro_text">Карты<br> <span class="span_taro">ТАРО</span></p>
+          <p class="taro_text">Таро<br> <span class="span_taro">чат</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
         <div class="natal" @click="this.$router.push('/natal')">
-          <p class="natal_text">Натальная<br> <span class="span_natal">карта</span></p>
+          <p class="natal_text">Карта<br> <span class="span_natal">дня</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
       </div>
@@ -122,7 +122,7 @@ p {
 }
 .cards {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 .card_container {
   display: flex;
@@ -189,7 +189,7 @@ p {
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   border-radius: 25px;
-  width: 100%;
+  width: 40%;
   padding: 15px 20px;
   position: relative;
 }

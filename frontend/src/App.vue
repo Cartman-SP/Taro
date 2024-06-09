@@ -22,7 +22,7 @@ export default {
   flex-direction: column;
   gap: 40px;
   padding: 20px;
-  height: 100vh;
+  height: 96vh;
   background: url(../img/bg6.jpg);
   background-size: cover;
   background-repeat: no-repeat;

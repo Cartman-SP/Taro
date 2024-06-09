@@ -1,105 +1,160 @@
 <template>
   <div class="main_page">
-    <p class="head_text">Введите дату рождения</p>
-    <div class="main_head">
-      <SelectPage
-      :options="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']"
-      @input="option => selectedTimeZone = option"
-      :placeholderdata="'Число'"
-      />
-      <SelectPage
-      :options="['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']"
-      @input="option => selectedTimeZone = option"
-      :placeholderdata="'Месяц'"
-      />
-      <SelectPage
-      :options="['1950', '1951', '1952', '1953', '1954', '1955', '1956', '1957', '1958', '1959', '1960', '1961', '1962', '1963', '1964', '1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975', '1976', '1977', '1978', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']"
-      @input="option => selectedTimeZone = option"
-      :placeholderdata="'Год'"
-      />  
+    <div class="img_container">
+      <div v-for="(card, index) in cards" :key="index" class="flip-card-container" @click="flipCard(index)">
+        <div class="flip-card" :class="{ flipped: card.flipped && showOnlyOneCardIndex === index }">
+          <div class="flip-card-front">
+            <img :src="require('../../img/Rubashka.jpg')" alt="" class="rubashka"/>
+          </div>
+          <div class="flip-card-back" v-if="card.flipped && showOnlyOneCardIndex === index">
+            <img :src="card.src" alt="" class="tarot-card"/>
+          </div>
+        </div>
+      </div>
     </div>
-    <button class="calculation">Рассчитать</button>
   </div>
 </template>
 
 <script>
-import SelectPage from './SelectPage.vue';
 export default {
-  components: { SelectPage },
   data() {
-      return {
-          
-      }
+    return {
+      cards: Array.from({ length: 9 }, () => ({ flipped: false, src: '' })),
+      tarotImages: [
+        require('../../img/taro/1.jpg'),
+        require('../../img/taro/2.jpg'),
+        require('../../img/taro/3.jpg'),
+        require('../../img/taro/4.jpg'),
+        require('../../img/taro/5.jpg'),
+        require('../../img/taro/6.jpg'),
+        require('../../img/taro/7.jpg'),
+        require('../../img/taro/8.jpg'),
+        require('../../img/taro/9.jpg'),
+        require('../../img/taro/10.jpg'),
+        require('../../img/taro/11.jpg'),
+        require('../../img/taro/12.jpg'),
+        require('../../img/taro/13.jpg'),
+        require('../../img/taro/14.jpg'),
+        require('../../img/taro/15.jpg'),
+        require('../../img/taro/16.jpg'),
+        require('../../img/taro/17.jpg'),
+        require('../../img/taro/18.jpg'),
+        require('../../img/taro/19.jpg'),
+        require('../../img/taro/20.jpg'),
+        require('../../img/taro/21.jpg'),
+        require('../../img/taro/22.jpg'),
+        require('../../img/taro/23.jpg'),
+        require('../../img/taro/24.jpg'),
+        require('../../img/taro/25.jpg'),
+        require('../../img/taro/26.jpg'),
+        require('../../img/taro/27.jpg'),
+        require('../../img/taro/28.jpg'),
+        require('../../img/taro/29.jpg'),
+        require('../../img/taro/30.jpg'),
+        require('../../img/taro/31.jpg'),
+        require('../../img/taro/32.jpg'),
+        require('../../img/taro/33.jpg'),
+        require('../../img/taro/34.jpg'),
+        require('../../img/taro/35.jpg'),
+        require('../../img/taro/36.jpg'),
+        require('../../img/taro/37.jpg'),
+        require('../../img/taro/38.jpg'),
+        require('../../img/taro/39.jpg'),
+        require('../../img/taro/40.jpg'),
+        require('../../img/taro/41.jpg'),
+        require('../../img/taro/42.jpg'),
+        require('../../img/taro/43.jpg'),
+        require('../../img/taro/44.jpg'),
+        require('../../img/taro/45.jpg'),
+        require('../../img/taro/46.jpg'),
+        require('../../img/taro/47.jpg'),
+        require('../../img/taro/48.jpg'),
+        require('../../img/taro/49.jpg'),
+        require('../../img/taro/50.jpg'),
+        require('../../img/taro/51.jpg'),
+        require('../../img/taro/52.jpg'),
+        require('../../img/taro/53.jpg'),
+        require('../../img/taro/54.jpg'),
+        require('../../img/taro/55.jpg'),
+        require('../../img/taro/56.jpg'),
+        require('../../img/taro/57.jpg'),
+        require('../../img/taro/58.jpg'),
+        require('../../img/taro/59.jpg'),
+        require('../../img/taro/60.jpg'),
+        require('../../img/taro/61.jpg'),
+        require('../../img/taro/62.jpg'),
+        require('../../img/taro/63.jpg'),
+        require('../../img/taro/64.jpg'),
+        require('../../img/taro/65.jpg'),
+        require('../../img/taro/66.jpg'),
+        require('../../img/taro/67.jpg'),
+        require('../../img/taro/68.jpg'),
+        require('../../img/taro/69.jpg'),
+        require('../../img/taro/70.jpg'),
+        require('../../img/taro/71.jpg'),
+        require('../../img/taro/72.jpg'),
+        require('../../img/taro/73.jpg'),
+        require('../../img/taro/74.jpg'),
+        require('../../img/taro/75.jpg'),
+        require('../../img/taro/76.jpg'),
+        require('../../img/taro/77.jpg'),
+        require('../../img/taro/78.jpg')
+      ],
+      availableImages: [],
+      showOnlyOneCardIndex: null // Индекс карточки, которую нужно показать
+    }
   },
+  methods: {
+    flipCard(index) {
+      // Устанавливаем индекс карточки, которую нужно показать
+      this.showOnlyOneCardIndex = index;
 
+      // Проверяем, не перевернута ли уже карточка
+      if (!this.cards[index].flipped) {
+        // Сначала перевернем все карточки в изначальное положение
+        this.cards.forEach((card) => {
+          card.flipped = false;
+        });
+        // Затем выберем случайное изображение из списка tarotImages
+        const randomIndex = Math.floor(Math.random() * this.tarotImages.length);
+        this.cards[index].src = this.tarotImages[randomIndex];
+        // И затем перевернем выбранную карточку
+        this.cards[index].flipped = true;
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header_container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.header_text {
-  font-family: Poppins;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 42px;
-  text-align: left;
-  color: #FFFFFF;
-}
-.balance_container {
-  background: #17212B;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-}
-.balance {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 42px;
-  letter-spacing: 0.01em;
-  text-align: left;
-  color: #FFFFFF;
-}
-.ref {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-.ref_balance {
-  font-family: Poppins;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px;
-  text-align: left;
-  color: #FFFFFF;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .main_page {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.main_head{
-  display: flex;
-  gap: 20px;
+.img_container{
+  width: 100%;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
 }
-.head_text{
-  font-family: Poppins;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 42px;
-  letter-spacing: 0.01em;
-  text-align: center;
-  color: #FFFFFF;
+.rubashka{
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
 }
 p{
   margin: 0;
@@ -117,9 +172,42 @@ button {
   gap: 5px;
   border-radius: 3px;
   transition: all .2s ease;
-  font-family: "TT Norms Medium";
+  font-family: "Mulish Regular";
 }
 .matrix_img{
   border-radius: 10px;
+}
+.flip-card-container {
+  perspective: 1000px;
+}
+
+.flip-card {
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.5s;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+  height: 100%;
+}
+
+.flip-card img {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+.flip-card-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.flip-card-back {
+  height: 100%;
+  transform: rotateY(180deg);
 }
 </style>
