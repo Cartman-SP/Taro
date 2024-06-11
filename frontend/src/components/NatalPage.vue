@@ -1,6 +1,6 @@
 <template>
   <div class="main_page">
-    <div class="img_container">
+    <div class="img_container" v-if="showOnlyOneCardIndex === null">
       <div v-for="(card, index) in cards" :key="index" class="flip-card-container" @click="flipCard(index)">
         <div class="flip-card" :class="{ flipped: card.flipped && showOnlyOneCardIndex === index }">
           <div class="flip-card-front">
@@ -10,6 +10,18 @@
             <img :src="card.src" alt="" class="tarot-card"/>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="centered-card" v-else>
+      <div class="flip-card-container" @click="flipCard(showOnlyOneCardIndex)">
+        <div class="flip-card flipped">
+          <div class="flip-card-back">
+            <img :src="cards[showOnlyOneCardIndex].src" alt="" class="tarot-card"/>
+          </div>
+        </div>
+      </div>
+      <div class="significance">
+        <p class="significance_text">Пожалуйста, выберите типыфвыфввфывфывфывыф фывфывраскладавв:ddddddddывфывраскладавв:dddddddddddddddddddddывфывраскладавв:ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
       </div>
     </div>
   </div>
@@ -140,7 +152,7 @@ export default {
   flex-direction: column;
   gap: 20px;
 }
-.img_container{
+.img_container {
   width: 100%;
   height: 600px;
   display: grid;
@@ -151,17 +163,17 @@ export default {
   opacity: 0;
   animation: fadeIn 2.5s ease forwards;
 }
-.rubashka{
+.rubashka {
   width: 100%;
   border-radius: 5px;
   object-fit: cover;
 }
-p{
+p {
   margin: 0;
 }
 button {
   color: #FFFFFF;
-  background:#6266EA;
+  background: #6266EA;
   border: none;
   cursor: pointer;
   display: flex;
@@ -174,7 +186,7 @@ button {
   transition: all .2s ease;
   font-family: "Mulish Regular";
 }
-.matrix_img{
+.matrix_img {
   border-radius: 10px;
 }
 .flip-card-container {
@@ -193,13 +205,6 @@ button {
   height: 100%;
 }
 
-.flip-card img {
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 5px;
-}
-
 .flip-card-front {
   position: absolute;
   top: 0;
@@ -209,5 +214,43 @@ button {
 .flip-card-back {
   height: 100%;
   transform: rotateY(180deg);
+}
+
+.centered-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2.5s ease;
+}
+.img_container.fade-out {
+  animation: fadeOut 2.5s ease forwards;
+}
+.tarot-card {
+  width: 80%;
+  height: auto;
+  max-width: 300px;
+}
+.significance{
+  width: 80%;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  border-radius: 12px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 180, 94, 209, 0.4 );
+  padding: 15px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  word-wrap: break-word;
+}
+.significance_text{
+  font-family: Mulish Regular;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #FFFFFF;
 }
 </style>

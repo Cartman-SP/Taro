@@ -252,7 +252,7 @@ button {
   gap: 5px;
   border-radius: 3px;
   transition: all .2s ease;
-  font-family: "TT Norms Medium";
+  font-family: Mulish Semibold;
 }
 .matrix_img{
   max-width: 100%;

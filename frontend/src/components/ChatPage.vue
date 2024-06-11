@@ -245,7 +245,7 @@ export default {
   background: rgba( 180, 94, 209, 0.4 );
   padding: 15px;
   margin-bottom: 20px;
-  opacity: 0; /* Начальное состояние - элемент невидим */
+  opacity: 0;
   animation: fadeIn 1s ease forwards;
 }
 .choice_text{
