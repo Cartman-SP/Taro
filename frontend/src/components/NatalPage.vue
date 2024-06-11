@@ -20,9 +20,13 @@
           </div>
         </div>
       </div>
+
       <div class="significance">
         <p class="significance_text">Пожалуйста, выберите типыфвыфввфывфывфывыф фывфывраскладавв:ddddddddывфывраскладавв:dddddddddddddddddddddывфывраскладавв:ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
       </div>
+      
+      <button class="home_button" @click="this.$router.push('/')">Домой</button>
+
     </div>
   </div>
 </template>
@@ -240,7 +244,6 @@ button {
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   background: rgba( 180, 94, 209, 0.4 );
   padding: 15px;
-  margin-bottom: 20px;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   word-wrap: break-word;
@@ -252,5 +255,21 @@ button {
   letter-spacing: 0.01em;
   text-align: left;
   color: #FFFFFF;
+}
+.home_button{
+  font-family: Mulish Regular;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  width: 60%;
+  color: #FFFFFF;
+  background: rgba( 180, 94, 209, 0.5 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 8px 10px;
 }
 </style>

@@ -263,7 +263,7 @@ button {
 }
 .search_head{
   font-family: Mulish Semibold;
-  font-size: 30px;
+  font-size: 28px;
   line-height: 42px;
   letter-spacing: 0.01em;
   text-align: left;
@@ -355,7 +355,8 @@ button {
 }
 .transcript{
   font-family: Mulish Semibold;
-  font-size: 24px;
+  font-size: 22px;
+  line-height: 32px;
   color: #FFFFFF;
   text-align: left;
 }
@@ -419,4 +420,5 @@ input::placeholder {
 input:focus {
   border: 1px solid #6266EA;
 }
+
 </style>

@@ -112,4 +112,9 @@ p {
   text-align: left;
   color: #FFFFFF;
 }
+img {
+  border-radius: 25px;
+  width: 65px;
+  height: 65px;
+}
 </style>
