@@ -235,6 +235,7 @@ button {
   width: 80%;
   height: auto;
   max-width: 300px;
+  border-radius: 5px;
 }
 .significance{
   width: 80%;

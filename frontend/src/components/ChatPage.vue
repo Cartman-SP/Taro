@@ -68,12 +68,18 @@
       </div>
       <div class="img_container" v-if="submittedQuestion" :style="{ height: imgContainerHeight }">
         <div v-for="(card, index) in cards" :key="index" class="flip-card-container" @click="flipCard(index)">
-          <div class="flip-card" :class="{ flipped: card.flipped }">
+          <div :class="['flip-card', { flipped: card.flipped, upsideDown: card.flipped && card.upsideDown }]">
             <div class="flip-card-front" v-if="!card.flipped">
               <img :src="require('../../img/Rubashka.jpg')" alt="Карты" />
             </div>
             <div class="flip-card-back" v-else>
               <img :src="card.src" alt="Карты" />
+              <div v-if="card.upsideDown" class="upside-down-indicator">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.05025 5.05025C7.78159 2.31892 12.2085 2.31658 14.9427 5.04325L12 8L19 7.96667L18.9668 1L16.3536 3.62568C12.838 0.121324 7.1473 0.124775 3.63604 3.63604C1.87889 5.39319 1.00001 7.69822 1 9.99996L3 9.99997C3.00001 8.20697 3.68323 6.41728 5.05025 5.05025Z" fill="white"/>
+                  <path d="M14.9497 14.9497C16.3168 13.5827 17 11.793 17 9.99997L19 9.99996C19 12.3017 18.1211 14.6068 16.364 16.364C12.8527 19.8752 7.16196 19.8787 3.64641 16.3743L1.03317 19L1 12.0333L8 12L5.05726 14.9567C7.79149 17.6834 12.2184 17.6811 14.9497 14.9497Z" fill="white"/>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +197,7 @@ export default {
   },
   methods: {
     selectCards(number) {
-      const defaultCardImage = { src: '', flipped: false };
+      const defaultCardImage = { src: '', flipped: false, upsideDown: false };
       this.selectedCards = number;
       this.cards = Array.from({ length: number }, () => ({ ...defaultCardImage }));
       this.availableImages = [...this.tarotImages];
@@ -201,20 +207,22 @@ export default {
 
       const randomIndex = Math.floor(Math.random() * this.availableImages.length);
       const randomImage = this.availableImages[randomIndex];
-      
+      const upsideDown = Math.random() < 0.5;  // 50% шанс на переворот
+
       this.availableImages.splice(randomIndex, 1);
 
       this.cards[index].src = randomImage;
       this.cards[index].flipped = true;
+      this.cards[index].upsideDown = upsideDown;
     },
     submitQuestion() {
       this.submittedQuestion = this.userQuestion;
       this.userQuestion = '';
     },
     revealAnswer() {
-      if(this.allCardsFlipped) {
-    this.showAnswer = true;
-      } 
+      if (this.allCardsFlipped) {
+        this.showAnswer = true;
+      }
     },
   }
 }
@@ -479,8 +487,11 @@ p{
 }
 
 .flip-card.flipped {
-  height: 100%;
   transform: rotateY(180deg);
+}
+
+.flip-card.upsideDown {
+  transform: rotateY(180deg) rotateZ(180deg);
 }
 
 .flip-card img {
@@ -493,6 +504,20 @@ p{
 .flip-card-back {
   height: 100%;
   transform: rotateY(180deg);
+}
+
+.upside-down-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6c0094;
+  border-radius: 25px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
 }
 .answer_button.purple {
   background: rgba( 180, 94, 209, 0.5 );

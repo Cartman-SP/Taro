@@ -6,7 +6,7 @@
           <p class="taro_text">Таро<br> <span class="span_taro">чат</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
-        <div class="natal" @click="this.$router.push('/natal')">
+        <div class="natal" @click="this.$router.push('/day')">
           <p class="natal_text">Карта<br> <span class="span_natal">дня</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
