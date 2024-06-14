@@ -188,6 +188,7 @@ export default {
       submittedQuestion: '',
       showAnswer: false,
       imgContainerHeight: '',
+      answer:'',
     }
   },
   computed: {
@@ -219,9 +220,31 @@ export default {
       this.submittedQuestion = this.userQuestion;
       this.userQuestion = '';
     },
-    revealAnswer() {
+    async revealAnswer() {
       if (this.allCardsFlipped) {
-        this.showAnswer = true;
+        const fileNames = this.cards.map(image => {
+        const src = image.src;
+        const fileName = src.split('/').pop().split('.')[0];
+        return fileName;
+        });
+        console.log(this.submittedQuestion)
+
+        try {
+          const response = await this.$axios.get('/get_answer/', {
+            params: {
+              question: this.submittedQuestion,
+              cards: fileNames,
+            },
+            withCredentials: true,
+          });
+          this.answer = response.data.answer;
+          this.showAnswer = true;
+        }
+        catch (error) {
+        this.error = error;
+        console.error('Error fetching data:', error);
+        }
+
       }
     },
   }
