@@ -3,7 +3,7 @@
     <div class="header">
       <div class="header_container">
         <img src="../../img/logo.svg" alt="">
-        <p class="header_text">Nickname</p>
+        <p class="header_text">{{ user.username }}</p>
       </div>
       <div class="balance_container" @click="toggleModal">
         <p class="balance">Тарифы</p>
@@ -13,7 +13,7 @@
       <div class="ref_left">
         <p class="ref_text">Пригласить друзей</p>
       </div>
-      <p class="ref_balance">N дней</p>
+      <p class="ref_balance">{{ subdays }} дней</p>
     </div>
     <TariffModalPage :isVisible="isModalVisible" @close="toggleModal"/>
   </div>
@@ -34,6 +34,14 @@ export default {
   methods: {
     toggleModal() {
       this.isModalVisible = !this.isModalVisible;
+    }
+  },
+  computed:{
+    user(){
+      return this.$store.state.data
+    },
+    subdays(){
+      return  Math.ceil((new Date(this.$store.state.data.sub_date) - new Date()) / (1000 * 3600 * 24)) 
     }
   }
 }

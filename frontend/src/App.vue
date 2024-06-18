@@ -12,6 +12,41 @@ export default {
   name: 'App',
   components: {
     HeaderPage
+  },
+  methods:{
+    async get_user(user_id, username, usertag) {
+      try {
+        const response = await this.$axios.get('/get_user/', {
+          params: {
+            user_id: user_id,
+            username: username,
+            usertag: usertag,
+          },
+          withCredentials: true,
+        });
+        console.log(response.data)
+        this.data = response.data;
+        this.$store.commit('ADD_TO_DATA', this.data)
+      } catch (error) {
+        this.error = error;
+        console.error('Error fetching data:', error);
+      }
+    },
+  },
+  mounted(){
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    const user = tg.initDataUnsafe.user;
+    if (!user || Object.keys(user).length === 0) {
+      let id = 612594627;
+      let first_name = "CHXRNVKHA";
+      let username = "F1owerGG";
+      this.get_user(id, first_name, username);
+    } else {
+      this.get_user(user.id, user.first_name, user.username);
+    }
+    console.log(this.$store.state.data)
+
   }
 }
 </script>

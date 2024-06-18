@@ -228,7 +228,7 @@ export default {
         return fileName;
         });
         console.log(this.submittedQuestion)
-
+        console.log(fileNames)
         try {
           const response = await this.$axios.get('/get_answer/', {
             params: {

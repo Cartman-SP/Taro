@@ -22,7 +22,7 @@
       </div>
 
       <div class="significance">
-        <p class="significance_text">Пожалуйста, выберите типыфвыфввфывфывфывыф фывфывраскладавв:ddddddddывфывраскладавв:dddddddddddddddddddddывфывраскладавв:ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+        <p class="significance_text">{{ answer }}</p>
       </div>
       
       <button class="home_button" @click="this.$router.push('/')">Домой</button>
@@ -36,6 +36,7 @@ export default {
   data() {
     return {
       cards: Array.from({ length: 9 }, () => ({ flipped: false, src: '' })),
+      answer: '',
       tarotImages: [
         require('../../img/taro/1.jpg'),
         require('../../img/taro/2.jpg'),
@@ -137,9 +138,27 @@ export default {
         // И затем перевернем выбранную карточку
         this.cards[index].flipped = true;
       }
-    }
+      this.revealAnswer(index)
+    },
+    async revealAnswer(index) {
+        try {
+          const response = await this.$axios.get('/day_card/', {
+            params: {
+              card: this.cards[index].src.split('/').pop().split('.')[0],
+            },
+            withCredentials: true,
+          });
+          this.answer = response.data.answer
+        }
+        catch (error) {
+        this.error = error;
+        console.error('Error fetching data:', error);
+        }
+
+      }
+    },
   }
-}
+
 </script>
 
 <style scoped>
