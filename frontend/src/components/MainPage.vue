@@ -284,6 +284,8 @@ p {
 }
 .item{
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .items{
   position: absolute;
