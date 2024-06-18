@@ -22,7 +22,7 @@ const routes = [
     component: DayCardPage
   },
   {
-    path: '/goroscope',
+    path: '/goroscope/:sign',
     name: 'GoroscopePage',
     component: GoroscopePage
   },

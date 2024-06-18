@@ -1,21 +1,82 @@
 <template>
   <div class="main_page">
-    <p class="header">Гороскоп Овна на сегодня</p>
+    <p class="header">Гороскоп {{ sign }} на сегодня</p>
     <div class="subheader_container">
-      <p class="subheader">21 МАРТА - 20 АПРЕЛЯ</p>
+      <p class="subheader">{{ new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }) }} - {{ new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }) }}</p>
     </div>
     <div class="main">
-      <p class="main_text">Сегодня Овнам просто необходимо наслаждаться жизнью – сейчас она дарит вам самые лучшие моменты. Прочувствуйте их. Отлично в этот день заниматься творчеством – это расслабит и поможет поверить в себя, что здорово отразится и на работе. Гороскоп на сегодня для знака Овна советует «забить» на рутину – находите альтернативные варианты, новые решения.</p>
+      <p class="main_text">{{ data }}</p>
     </div>
-    <button class="home_button" @click="this.$router.push('/')">Домой</button>
+    <button class="home_button" @click="goHome">Домой</button>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+
 export default {
+  name: 'GoroscopePage',
+  data(){
+    return{
+      data: '',
+      sign:'',
+    }
+  },
+  mounted() {
+  const route = useRoute();
+  const sign = ref(route.params.sign);
+  this.initializeData(sign);
+},
+methods: {
+  async initializeData(sign) {
+    try {
+      await this.getSign(sign);
+      await this.getHoro();
+    } catch (error) {
+      console.error('Error initializing data:', error);
+    }
+  },
+  async getSign(sign) {
+    const zodiacSigns = {
+      aries: 'Овен',
+      taurus: 'Телец',
+      gemini: 'Близнецы',
+      cancer: 'Рак',
+      leo: 'Лев',
+      virgo: 'Дева',
+      libra: 'Весы',
+      scorpio: 'Скорпион',
+      sagittarius: 'Стрелец',
+      capricorn: 'Козерог',
+      aquarius: 'Водолей',
+      pisces: 'Рыбы'
+    };
+    this.sign = zodiacSigns[sign.value];
+  },
+  async getHoro() {
+    try {
+      const response = await this.$axios.get('/get_goroscope_info/', {
+        params: {
+          sign: this.sign,
+        },
+        withCredentials: true,
+      });
+      this.data = response.data.answer;
+    } catch (error) {
+      this.error = error;
+      console.error('Error fetching data:', error);
+    }
+  },
+  goHome() {
+    this.$router.push('/');
+  }
+}
 
 }
 </script>
+
+
 
 <style scoped>
 .main_page{

@@ -6,6 +6,31 @@ import openai
 from .models import *
 from .serializers import *
 from datetime import datetime, timedelta
+import requests
+from bs4 import BeautifulSoup
+
+def get_goroskop():
+    url = "https://my-calend.ru/goroskop"
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        goroskop_items = soup.find('ul', class_='goroskop-items').find_all('li')
+        goroskop_dict = {}
+        for item in goroskop_items:
+            description_block = item.find('div', class_='goroskop-items-description')
+            if description_block:
+                sign_element = description_block.find('a')
+                description_element = description_block.find_all('div')[-1]
+                if sign_element and description_element:
+                    sign = sign_element.text.strip()
+                    description = description_element.text.strip()
+                    goroskop_dict[sign] = description
+        
+        return goroskop_dict
+    else:
+        print(f"Ошибка при запросе страницы: {response.status_code}")
+        return None
+    
 @api_view(['GET'])
 def get_answer(request):
     cards_names = [
@@ -319,3 +344,9 @@ def day_card(request):
     answer = cards_interpretations[card]
     print(answer)
     return Response({'answer':answer}, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def get_goroscope_info(request):
+
+    return Response({'answer':get_goroskop()[request.GET.get('sign')]}, status=status.HTTP_200_OK)

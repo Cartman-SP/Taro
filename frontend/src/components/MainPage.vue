@@ -22,51 +22,51 @@
       <p class="goroskop_text">Гороскоп<br>по знакам зодиака</p>
     </div>
     <div class="slider">
-      <div class="slider_card" @click="this.$router.push('/goroscope')">
+      <div class="slider_card" @click="this.$router.push('/goroscope/aries')">
         <img src="../../img/Oven.svg" alt="" class="img_slider">
         <p class="slider_text">Овен</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/taurus')">
         <img src="../../img/telec.svg" alt="" class="img_slider">
         <p class="slider_text">Телец</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/gemini')">
         <img src="../../img/bliz.svg" alt="" class="img_slider">
         <p class="slider_text">Близнецы</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/cancer ')">
         <img src="../../img/rak.svg" alt="" class="img_slider">
         <p class="slider_text">Рак</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/leo')">
         <img src="../../img/lion.svg" alt="" class="img_slider">
         <p class="slider_text">Лев</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/virgo')">
         <img src="../../img/deva.svg" alt="" class="img_slider">
         <p class="slider_text">Дева</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/libra')">
         <img src="../../img/vesi.svg" alt="" class="img_slider">
         <p class="slider_text">Весы</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/scorpio')">
         <img src="../../img/scorpion.svg" alt="" class="img_slider">
         <p class="slider_text">Скорпион</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/sagittarius')">
         <img src="../../img/strelec.svg" alt="" class="img_slider">
         <p class="slider_text">Стрелец</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/capricorn')">
         <img src="../../img/kozerog.svg" alt="" class="img_slider">
         <p class="slider_text">Козерог</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/pisces')">
         <img src="../../img/fish.svg" alt="" class="img_slider">
         <p class="slider_text">Рыбы</p>
       </div>
-      <div class="slider_card">
+      <div class="slider_card" @click="this.$router.push('/goroscope/aquarius')">
         <img src="../../img/vodolei.svg" alt="" class="img_slider">
         <p class="slider_text">Водолей</p>
       </div>
