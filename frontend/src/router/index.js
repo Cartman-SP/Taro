@@ -6,6 +6,8 @@ import DayCardPage from '../components/DayCardPage.vue'
 import GoroscopePage from '../components/GoroscopePage.vue'
 import YesNo from '../components/YesNo.vue'
 import CardPage from '../components/CardPage.vue'
+import CardSignificancePage from '../components/CardSignificancePage.vue'
+import CardBannedPage from '../components/CardBannedPage.vue'
 
 
 const routes = [
@@ -43,6 +45,16 @@ const routes = [
     path: '/card',
     name: 'CardPage',
     component: CardPage
+  },
+  {
+    path: '/card/banned',
+    name: 'CardBannedPage',
+    component: CardBannedPage
+  },
+  {
+    path: '/card/significance',
+    name: 'CardSignificancePage',
+    component: CardSignificancePage
   },
 ]
 

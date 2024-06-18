@@ -371,22 +371,22 @@ button {
   gap: 15px;
 }
 .transcript_cards_lock{
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  -webkit-backdrop-filter: blur( 3px );
+  background: rgba(164, 164, 164, 0.2) url('../../img/locked.svg') no-repeat right 5px center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
-  background: rgba( 180, 94, 209, 0.65 ) url('../../img/locked.svg') no-repeat right 5px center;
   padding: 15px;
 }
 .transcript_cards{
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  -webkit-backdrop-filter: blur( 3px );
+  background: rgba(164, 164, 164, 0.2) url('../../img/right.svg') no-repeat right 5px center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
-  background: rgba( 180, 94, 209, 0.65 ) url('../../img/right.svg') no-repeat right 5px center;
-  padding: 15px;
+  padding: 15px;  
 }
 .heart_text{
   font-family: Mulish Semibold;

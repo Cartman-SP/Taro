@@ -19,9 +19,10 @@
       </div>  
     </div>
     <div class="card_container_bottom">
-      <div class="taro bottom" @click="handleClick('/yesno')">
-        <p class="taro_text">Да/Нет</p>
+      <div class="taro bottom item" @click="handleClick('/yesno')">
+        <p class="taro_text">Да / Нет</p>
         <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
+<!--         <img src="../../img/item.png" alt="" class="items"> -->
       </div>
       <div class="natal bottom" @click="handleClick('/card')">
         <p class="natal_text">Значение<br> <span class="span_natal">карт</span></p>
@@ -280,6 +281,14 @@ p {
   color: white;
   font-size: 20px;
   cursor: pointer;
+}
+.item{
+  position: relative;
+}
+.items{
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 </style>
 
