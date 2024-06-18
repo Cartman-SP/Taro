@@ -4,6 +4,9 @@ import ChatPage from '../components/ChatPage.vue'
 import MatrixPage from '../components/MatrixPage.vue'
 import DayCardPage from '../components/DayCardPage.vue'
 import GoroscopePage from '../components/GoroscopePage.vue'
+import YesNo from '../components/YesNo.vue'
+import CardPage from '../components/CardPage.vue'
+
 
 const routes = [
   {
@@ -30,6 +33,16 @@ const routes = [
     path: '/chat',
     name: 'ChatPage',
     component: ChatPage
+  },
+  {
+    path: '/yesno',
+    name: 'YesNo',
+    component: YesNo
+  },
+  {
+    path: '/card',
+    name: 'CardPage',
+    component: CardPage
   },
 ]
 

@@ -2,21 +2,31 @@
   <div class="main_page">
     <div class="cards">
       <div class="card_container">
-        <div class="taro" @click="this.$router.push('/chat')">
+        <div class="taro" @click="handleClick('/chat')">
           <p class="taro_text">Таро<br> <span class="span_taro">чат</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
-        <div class="natal" @click="this.$router.push('/day')">
+        <div class="natal" @click="handleClick('/day')">
           <p class="natal_text">Карта<br> <span class="span_natal">дня</span></p>
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
       </div>
-      <div class="matrix" @click="this.$router.push('/matrix')">
+      <div class="matrix" @click="handleClick('/matrix')">
         <p class="matrix_text">Матрица<br>судьбы</p>
         <div class="circle">
           <img src="../../img/next.svg" alt="">
         </div>
       </div>  
+    </div>
+    <div class="card_container_bottom">
+      <div class="taro bottom" @click="handleClick('/yesno')">
+        <p class="taro_text">Да/Нет</p>
+        <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
+      </div>
+      <div class="natal bottom" @click="handleClick('/card')">
+        <p class="natal_text">Значение<br> <span class="span_natal">карт</span></p>
+        <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
+      </div>
     </div>
     <div class="goroskop">
       <p class="goroskop_text">Гороскоп<br>по знакам зодиака</p>
@@ -34,7 +44,7 @@
         <img src="../../img/bliz.svg" alt="" class="img_slider">
         <p class="slider_text">Близнецы</p>
       </div>
-      <div class="slider_card" @click="this.$router.push('/goroscope/cancer ')">
+      <div class="slider_card" @click="this.$router.push('/goroscope/cancer')">
         <img src="../../img/rak.svg" alt="" class="img_slider">
         <p class="slider_text">Рак</p>
       </div>
@@ -71,12 +81,37 @@
         <p class="slider_text">Водолей</p>
       </div>
     </div>
+    <div v-if="showNotification" class="notification">
+      <p>Лимит исчерпан</p>
+      <button @click="closeNotification" class="close-btn">×</button>
+    </div>
   </div>
 </template>
 
 
 <script>
 export default {
+  data() {
+    return {
+      showNotification: false,
+      targetRoute: null,
+    };
+  },
+  methods: {
+    handleClick(route) {
+      console.log('handleClick called with route:', route);
+      this.targetRoute = route;
+      this.showNotification = true;
+      setTimeout(() => {
+        this.$router.push(this.targetRoute);
+        this.showNotification = false;
+      }, 2000);
+    },
+    closeNotification() {
+      console.log('closeNotification called');
+      this.showNotification = false;
+    }
+  },
   mounted() {
     const slider = this.$el.querySelector('.slider');
     let isDown = false;
@@ -104,7 +139,7 @@ export default {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 3; // Adjust scroll speed
+      const walk = (x - startX) * 3; // регулировка скорости прокрутки
       slider.scrollLeft = scrollLeft - walk;
     });
   }
@@ -118,7 +153,7 @@ export default {
   gap: 20px;
 }
 p {
-  margin: 0 ;
+  margin: 0;
 }
 .cards {
   display: flex;
@@ -130,47 +165,35 @@ p {
   gap: 15px;
   width: 50%;
 }
-.taro {
+.card_container_bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.taro, .natal, .matrix {
   position: relative;
-  background: rgba( 180, 94, 209, 0.65 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  -webkit-backdrop-filter: blur( 3px );
+  background: rgba(180, 94, 209, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 25px;
-  height: auto;
   padding: 35px 20px;
 }
-.taro_text {
+.taro_text, .natal_text, .matrix_text {
   font-family: Mulish Regular;
-  font-size: 40px;
+  font-size: 28px;
   line-height: 32px;
   text-align: left;
   color: #FFFFFF;
+}
+.bottom{
+  width: 37%;
 }
 .span_taro {
   font-family: Mulish Regular;
   font-size: 20px;
   line-height: 14px;
-  text-align: left;
-  color: #FFFFFF;
-}
-.natal {
-  position: relative;
-  background: rgba( 180, 94, 209, 0.65 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  -webkit-backdrop-filter: blur( 3px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  border-radius: 25px;
-  padding: 35px 20px;
-}
-.natal_text {
-  font-family: Mulish Regular;
-  font-size: 28px;
-  line-height: 32px;
   text-align: left;
   color: #FFFFFF;
 }
@@ -180,25 +203,6 @@ p {
   line-height: 14px;
   text-align: left;
   color: #FFFFFF;
-}
-.matrix {
-  background: rgba( 180, 94, 209, 0.65 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  -webkit-backdrop-filter: blur( 3px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  border-radius: 25px;
-  width: 40%;
-  padding: 15px 20px;
-  position: relative;
-}
-.matrix_text {
-  color: rgba(255, 255, 255, 1);
-  font-family: Mulish Regular;
-  font-size: 28px;
-  line-height: 36px;
-  text-align: left;
 }
 .circle {
   position: absolute;
@@ -237,10 +241,10 @@ p {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 8px );
-  -webkit-backdrop-filter: blur( 8px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 15px;
   scroll-snap-align: start;
   min-width: 135px;
@@ -256,5 +260,27 @@ p {
   width: 120px;
   height: 100px;
 }
+.notification {
+  font-family: Mulish Regular;
+  position: fixed;
+  bottom: 10px;
+  background-color: rgb(189, 95, 95);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  width: 80%;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
 </style>
+
 
