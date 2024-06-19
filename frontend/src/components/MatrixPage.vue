@@ -147,61 +147,150 @@
       </div>
       <p class="transcript"> Расшифровка значений вашей<br>Матрицы судьбы</p>
       <div class="transcript_container">
-        <div class="transcript_cards">
-          <p class="transcript_text">Визитная карточка</p>
+        <div class="transcript_cards" @click="toggleContent('direct')">
+          <div class="wrap">
+            <p class="transcript_text">Визитная карточка</p>
+            <img :class="{'rotated': visibleContent === 'direct'}" src="../../img/down.svg" alt="">
+          </div>
+          <div v-if="visibleContent === 'direct'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards">
-          <p class="transcript_text">Карма прошлого воплощения</p>
+        <div class="transcript_cards" @click="toggleContent('carma')">
+          <div class="wrap">
+            <p class="transcript_text">Карма прошлого воплощения</p>
+            <img :class="{'rotated': visibleContent === 'carma'}" src="../../img/down.svg" alt="">
+          </div>
+          <div v-if="visibleContent === 'carma'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Главная проработка души</p>
+        <div class="transcript_cards" @click="handleContentClick('dusha')">
+          <div class="wrap">
+            <p class="transcript_text">Главная проработка души</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'dusha'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'dusha'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Задачи души до 40 лет</p>
+        <div class="transcript_cards" @click="handleContentClick('zadachi')">
+          <div class="wrap">
+            <p class="transcript_text">Задачи души до 40 лет</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'zadachi'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'zadachi'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Отношения</p>
+        <div class="transcript_cards" @click="handleContentClick('otnoshenii')">
+          <div class="wrap">
+            <p class="transcript_text">Отношения</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'otnoshenii'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'otnoshenii'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Деньги</p>
+        <div class="transcript_cards" @click="handleContentClick('cash')">
+          <div class="wrap">
+            <p class="transcript_text">Деньги</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'cash'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'cash'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards">
-          <p class="transcript_text">Точка душевного комфорта</p>
+        <div class="transcript_cards" @click="toggleContent('dot')">
+          <div class="wrap">
+            <p class="transcript_text">Точка душевного комфорта</p>
+            <img :class="{'rotated': visibleContent === 'dot'}" src="../../img/down.svg" alt="">
+          </div>
+          <div v-if="visibleContent === 'dot'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards">
-          <p class="transcript_text">Родовые задачи</p>
+        <div class="transcript_cards" @click="toggleContent('rod')">
+          <div class="wrap">
+            <p class="transcript_text">Родовые задачи</p>
+            <img :class="{'rotated': visibleContent === 'rod'}" src="../../img/down.svg" alt="">
+          </div>
+          <div v-if="visibleContent === 'rod'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
+        </div>     
+        <div class="transcript_cards" @click="handleContentClick('talant')">
+          <div class="wrap">
+            <p class="transcript_text">Таланты</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'talant'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'talant'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
+        </div> 
+        <div class="transcript_cards" @click="toggleContent('deti')">
+          <div class="wrap">
+            <p class="transcript_text">Детско-родительские отношения</p>
+            <img :class="{'rotated': visibleContent === 'deti'}" src="../../img/down.svg" alt="">
+          </div>
+          <div v-if="visibleContent === 'deti'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Таланты</p>
+        <div class="transcript_cards" @click="handleContentClick('znachenie')">
+          <div class="wrap">
+            <p class="transcript_text">Предназначение</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'znachenie'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'znachenie'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
-        <div class="transcript_cards">
-          <p class="transcript_text">Детско-родительские отношения</p>
-        </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Предназначение</p>
-        </div>
-        <div class="transcript_cards">
-          <p class="transcript_text">Персональный прогноз по годам</p>
-        </div>
-        <div class="transcript_cards_lock">
-          <p class="transcript_text">Сексуальность</p>
+        <div class="transcript_cards" @click="toggleContent('god')">
+          <div class="wrap">
+            <p class="transcript_text">Персональный прогноз по годам</p>
+            <img :class="{'rotated': visibleContent === 'god'}" src="../../img/down.svg" alt="">
+          </div>
+          <div v-if="visibleContent === 'god'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
+        </div>  
+        <div class="transcript_cards" @click="handleContentClick('sex')">
+          <div class="wrap">
+            <p class="transcript_text">Сексуальность</p>
+            <img v-if="issubbed" src="../../img/down.svg" :class="{'rotated': visibleContent === 'sex'}" alt="">
+            <img v-else src="../../img/locked.svg" @click.stop="toggleModal()" alt="">
+          </div>
+          <div v-if="issubbed && visibleContent === 'sex'" class="content">
+            <p class="subheader">Текст про прямое значение...</p>
+          </div>
         </div>
       </div>
     </div>
+    <TariffModalPage :isVisible="isModalVisible" @close="toggleModal"/>
   </div>
 </template>
 
 <script>
 import SelectPage from '../components/SelectPage.vue';
+import TariffModalPage from './TariffModalPage.vue';
 export default {
-  components: { SelectPage },
+  components: { SelectPage, TariffModalPage},
   data() {
     return {
       userName: '',
       selectedDay: '',
       selectedMonth: '',
       selectedYear: '',
-      isCalculated: false,        
+      isCalculated: false,  
+      visibleContent: null,
+      isModalVisible: false      
     }
   },
   methods: {
@@ -212,8 +301,29 @@ export default {
         alert("Пожалуйста, заполните все поля.");
       }
     },
+    toggleContent(content) {
+      if (this.visibleContent === content) {
+        this.visibleContent = null;
+      } else {
+        this.visibleContent = content;
+      }
+    },
+    handleContentClick(content) {
+      if (this.issubbed) {
+        this.toggleContent(content);
+      } else {
+        this.toggleModal();
+      }
+    },
+    toggleModal() {
+      this.isModalVisible = !this.isModalVisible;
+    }
   },
-
+  computed:{
+    issubbed(){
+      return  Math.ceil((new Date(this.$store.state.data.sub_date) - new Date()) / (1000 * 3600 * 24)) > 0
+    }
+  },
 }
 </script>
 
@@ -371,7 +481,7 @@ button {
   gap: 15px;
 }
 .transcript_cards_lock{
-  background: rgba(164, 164, 164, 0.2) url('../../img/locked.svg') no-repeat right 5px center;
+  background: rgba(164, 164, 164, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -380,7 +490,7 @@ button {
   padding: 15px;
 }
 .transcript_cards{
-  background: rgba(164, 164, 164, 0.2) url('../../img/right.svg') no-repeat right 5px center;
+  background: rgba(164, 164, 164, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -420,5 +530,29 @@ input::placeholder {
 input:focus {
   border: 1px solid #6266EA;
 }
-
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subheader {
+  font-family: Mulish Regular;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #d3d3d3;
+}
+img {
+  transition: transform 0.3s ease;
+}
+img.rotated {
+  transform: rotate(180deg);
+}
+.content{
+  padding-top: 10px;
+  font-family: Mulish Regular;
+  font-size: 14px;
+  color: #FFFFFF;  
+}
 </style>
