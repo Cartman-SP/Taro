@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import TelegramUser
+from .models import *
 
 class TelegramUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,3 +16,8 @@ class TelegramUserSerializer(serializers.ModelSerializer):
         instance.sub_date = validated_data.get('sub_date', instance.sub_date)
         instance.save()
         return
+    
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['id', 'user', 'tariff', 'price', 'payment_id', 'is_paid']

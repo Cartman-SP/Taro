@@ -1,41 +1,62 @@
 <template>
-    <div v-if="isVisible" class="modal-overlay" @click="closeModal">
-      <div class="modal" @click.stop>
-        <div class="modal-header">
-          <button class="close-button" @click="closeModal">&times;</button>
+  <div v-if="isVisible" class="modal-overlay" @click="closeModal">
+    <div class="modal" @click.stop>
+      <div class="modal-header">
+        <button class="close-button" @click="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="tariff">
+          <button class="tariff_btn" @click="initiatePayment('weekly')">Недельный 100руб</button>
         </div>
-        <div class="modal-body">
-          <div class="tariff">
-<!--             <p class="tariff-title">Недельный:</p>
-            <p class="tariff-price">100 рублей</p> -->
-            <button class="tariff_btn">Недельный 350р</button>
-          </div>
-          <div class="tariff">
-            <button class="tariff_btn">Месячный 350р</button>
-          </div>
-          <div class="tariff">
-            <button class="tariff_btn">Годовой 350р</button>
-          </div>
+        <div class="tariff">
+          <button class="tariff_btn" @click="initiatePayment('monthly')">Месячный 269руб</button>
+        </div>
+        <div class="tariff">
+          <button class="tariff_btn" @click="initiatePayment('yearly')">Годовой 3000руб</button>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      isVisible: {
-        type: Boolean,
-        required: true
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    isVisible: {
+      type: Boolean,
+      required: true
+    }
+  },
+  methods: {
+    closeModal() {
+      this.$emit('close');
+    },
+    async initiatePayment(tariff) {
+      try {
+        const response = await this.$axios.post('/create-payment/', {
+          tariff: tariff,
+          user_id: this.$store.state.data.user_id
+        });
+        if (response.status === 201) {
+          const paymentData = response.data;
+          this.openInvoice(paymentData.invoice_payload);
+        } else {
+          alert('Ошибка при создании платежа!');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Ошибка при создании платежа!');
       }
     },
-    methods: {
-      closeModal() {
-        this.$emit('close');
-      }
+    openInvoice(payload) {
+      const botUsername = 'Tar0l0gbot'; // Замените на имя вашего бота
+      const url = `https://t.me/${botUsername}?start=${payload}`;
+      window.location.href = url;
     }
   }
-  </script>
+}
+</script>
+
   
   <style scoped>
   .tariff_btn {

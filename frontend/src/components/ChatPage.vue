@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="answer" v-if="showAnswer">
-        <p class="answer_text">ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ ГПТ</p>
+        <p class="answer_text">{{ answer }}</p>
       </div>
     </div>
   </div>
@@ -237,6 +237,7 @@ export default {
             },
             withCredentials: true,
           });
+          console.log(response)
           this.answer = response.data.answer;
           this.showAnswer = true;
         }

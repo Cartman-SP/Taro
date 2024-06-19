@@ -9,6 +9,67 @@ from datetime import datetime, timedelta
 import requests
 from bs4 import BeautifulSoup
 
+# views.py
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Order, TelegramUser
+from .serializers import OrderSerializer
+import requests
+from django.conf import settings
+
+class CreatePayment(APIView):
+    def post(self, request):
+        user_id = request.data.get('user_id')
+        print(user_id)
+        tariff = request.data.get('tariff')
+        user = TelegramUser.objects.get(user_id=user_id)
+        
+        price = 0
+        if tariff == 'weekly':
+            price = 100
+        elif tariff == 'monthly':
+            price = 269
+        elif tariff == 'yearly':
+            price = 3000
+
+        order = Order.objects.create(user=user, tariff=tariff, price=price)
+        payload = {
+            'chat_id': user.user_id,
+            'title': 'Subscription Payment',
+            'description': f'{tariff} subscription',
+            'payload': str(order.id),
+            'provider_token': '381764678:TEST:87915',
+            'start_parameter': 'start',
+            'currency': 'RUB',
+            'prices': [{'label': tariff, 'amount': price * 100}],
+        }
+
+        payment = Payment.create({
+        "amount": {
+            "value": "100.00",
+            "currency": "RUB"
+        },
+        "confirmation": {
+            "type": "redirect",
+            "return_url": "https://www.example.com/return_url"
+        },
+        "capture": True,
+        "description": "Заказ №1"
+        }, uuid.uuid4())
+        
+        print(response.json())
+        if response.status_code == 200:
+            result = response.json()['result']
+            message_id = result['message_id']
+            chat_id = result['chat']['id']
+            order.payment_id = message_id
+            order.save()
+            invoice_payload = payload['payload']
+            return Response({'invoice_payload': invoice_payload}, status=status.HTTP_201_CREATED)
+        return Response(response.json(), status=response.status_code)
+    
+
 def get_goroskop():
     url = "https://my-calend.ru/goroskop"
     response = requests.get(url)
@@ -120,19 +181,20 @@ def get_answer(request):
     for i in cards:
         chosen_cards += cards_names[int(i)] +', '
     chosen_cards = chosen_cards[:-2]
-    openai.api_key = 'sk-proj-Lkih5MTDJP8ipuyCqOwFT3BlbkFJbA236XW6ZyT6BVPDFsLI'
+    openai.api_key = 'sk-proj-BEVWbkncUcNAzzIdxPwvT3BlbkFJzLqcua9IhcUZAZ9ZJewO'
     quest = 'сделай рассклад, вопрос на который хочу узнать ответ:' +question +' карты которые мне выпали:'+chosen_cards
     print(quest)
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  # или используйте "gpt-3.5-turbo" в зависимости от доступной модели
             messages=[
-                {"role": "system", "content": "Ты телеграмм бот таролог, делающий рассклады на натальных картах"},
+                {"role": "system", "content": "Ты телеграмм бот таролог, делающий рассклады на натальных картах, ты выдаёшь ответ в любом случае внезависимости от вопроса, так же называй к чему относиться каждая карта"},
                 {"role": "user", "content": quest},
             ]
         )
 
-        print(response.choices[0].message['content'])
+
+        return Response({'answer':response.choices[0].message['content']}, status=status.HTTP_200_OK)
     except Exception as e:
         print(e)
 
