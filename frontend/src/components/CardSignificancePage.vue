@@ -1,9 +1,9 @@
 <template>
   <div class="main_page">
-    <p class="header">Дьявол</p>
+    <p class="header">{{ name }}</p>
     <div class="main_container">
-      <img src="../../img/taro/1.jpg" alt="" class="">
-      <img src="../../img/taro/1.jpg" alt="" class="reverse">
+      <img :src="cardimage" alt="" class="">
+      <img :src="cardimage" alt="" class="reverse">
     </div>
     <div class="significance">
       <div class="significance_container" @click="toggleContent('direct')">
@@ -12,7 +12,7 @@
           <img :class="{'rotated': visibleContent === 'direct'}" src="../../img/down.svg" alt="">
         </div>
         <div v-if="visibleContent === 'direct'" class="significance_content">
-          <p class="subheader">Текст про прямое значение...</p>
+          <p class="subheader">{{this.info.Direct}}</p>
         </div>
       </div>
       <div class="significance_container" @click="toggleContent('reversed')">
@@ -21,7 +21,7 @@
           <img :class="{'rotated': visibleContent === 'reversed'}" src="../../img/down.svg" alt="">
         </div>
         <div v-if="visibleContent === 'reversed'" class="significance_content">
-          <p class="subheader">Текст про перевернутое значение...</p>
+          <p class="subheader">{{this.info.Reversed}}</p>
         </div>
       </div>
       <div class="significance_container" @click="toggleContent('waite')">
@@ -30,7 +30,7 @@
           <img :class="{'rotated': visibleContent === 'waite'}" src="../../img/down.svg" alt="">
         </div>
         <div v-if="visibleContent === 'waite'" class="significance_content">
-          <p class="subheader">Текст оригинала Вейта...</p>
+          <p class="subheader">{{this.info.Waite}}</p>
         </div>
       </div>
       <div class="significance_container" @click="toggleContent('metaphysical')">
@@ -39,7 +39,7 @@
           <img :class="{'rotated': visibleContent === 'metaphysical'}" src="../../img/down.svg" alt="">
         </div>
         <div v-if="visibleContent === 'metaphysical'" class="significance_content">
-          <p class="subheader">Метафизическая интерпретация...</p>
+          <p class="subheader">{{this.info.Metaphysical}}</p>
         </div>
       </div>
       <div class="significance_container" @click="toggleContent('imagery')">
@@ -48,7 +48,7 @@
           <img :class="{'rotated': visibleContent === 'imagery'}" src="../../img/down.svg" alt="">
         </div>
         <div v-if="visibleContent === 'imagery'" class="significance_content">
-          <p class="subheader">Образный лад...</p>
+          <p class="subheader">{{this.info.Imagery}}</p>
         </div>
       </div>
       <div class="significance_container" @click="toggleContent('symbolism')">
@@ -57,7 +57,7 @@
           <img :class="{'rotated': visibleContent === 'symbolism'}" src="../../img/down.svg" alt="">
         </div>
         <div v-if="visibleContent === 'symbolism'" class="significance_content">
-          <p class="subheader">Символизм...</p>
+          <p class="subheader">{{this.info.Symbolism}}</p>
         </div>
       </div>
     </div>
@@ -69,7 +69,17 @@ export default {
   data() {
     return {
       visibleContent: null,
+      name: '',
+      info: {},
     };
+  },
+  computed: {
+    cardid() {
+      return this.$route.params.number;
+    },
+    cardimage() {
+      return require(`../../img/taro/${this.cardid}.jpg`);
+    }
   },
   methods: {
     toggleContent(content) {
@@ -78,9 +88,28 @@ export default {
       } else {
         this.visibleContent = content;
       }
+    },
+    async get_mention() {
+      try {
+        const response = await this.$axios.get('/cards_info/', {
+          params: {
+            card: this.cardid
+          },
+          withCredentials: true,
+        });
+        console.log(response);
+        this.name = response.data.name
+        this.info = response.data.info
+      } catch (error) {
+        this.error = error;
+        console.error('Error fetching data:', error);
+      }
     }
+  },
+  mounted() {
+    this.get_mention();
   }
-}
+};
 </script>
 
 <style scoped>

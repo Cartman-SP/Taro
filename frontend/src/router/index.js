@@ -47,12 +47,12 @@ const routes = [
     component: CardPage
   },
   {
-    path: '/card/banned',
+    path: '/card/banned/:number',
     name: 'CardBannedPage',
     component: CardBannedPage
   },
   {
-    path: '/card/significance',
+    path: '/card/significance/:number',
     name: 'CardSignificancePage',
     component: CardSignificancePage
   },

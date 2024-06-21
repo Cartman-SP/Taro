@@ -19,91 +19,91 @@
       <div v-if="selectedNav === 0" class="selectedNav">
         <p class="head">Старшие арканы</p>
         <div class="card_container">
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(77)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/77.jpg" alt="">
             <p class="card_text">Дурак</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(8)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/8.jpg" alt="">
             <p class="card_text">Маг</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(9)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/9.jpg" alt="">
             <p class="card_text">Верховная жрица</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(70)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/70.jpg" alt="">
             <p class="card_text">Императрица</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(18)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/18.jpg" alt="">
             <p class="card_text">Император</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(59)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/59.jpg" alt="">
             <p class="card_text">Иерофант</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(24)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/24.jpg" alt="">
             <p class="card_text">Влюбленные</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(29)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/29.jpg" alt="">
             <p class="card_text">Колесница</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(34)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/34.jpg" alt="">
             <p class="card_text">Сила</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(75)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/75.jpg" alt="">
             <p class="card_text">Отшельник</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(78)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/78.jpg" alt="">
             <p class="card_text">Колесо Фортуны</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(45)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/45.jpg" alt="">
             <p class="card_text">Правосудие</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(48)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/48.jpg" alt="">
             <p class="card_text">Повешанный</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(49)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/49.jpg" alt="">
             <p class="card_text">Смерть</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(52)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/52.jpg" alt="">
             <p class="card_text">Умеренность</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(1)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/1.jpg" alt="">
             <p class="card_text">Дьявол</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(54)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/54.jpg" alt="">
             <p class="card_text">Башня</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(69)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/69.jpg" alt="">
             <p class="card_text">Звезда</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(63)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/63.jpg" alt="">
             <p class="card_text">Луна</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(53)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/53.jpg" alt="">
             <p class="card_text">Солнце</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(56)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/56.jpg" alt="">
             <p class="card_text">Суд</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(55)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/55.jpg" alt="">
             <p class="card_text">Мир</p>
           </div>
@@ -112,59 +112,59 @@
       <div v-if="selectedNav === 1" class="selectedNav">
         <p class="head">Жезлы</p>
         <div class="card_container">
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(66)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/66.jpg" alt="">
             <p class="card_text">Туз Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(10)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/10.jpg" alt="">
             <p class="card_text">Двойка жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(14)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/14.jpg" alt="">
             <p class="card_text">Тройка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(17)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/17.jpg" alt="">
             <p class="card_text">Четвёрка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(22)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/22.jpg" alt="">
             <p class="card_text">Пятёрка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(25)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/25.jpg" alt="">
             <p class="card_text">Шестёрка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(30)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/30.jpg" alt="">
             <p class="card_text">Семёрка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(65)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/65.jpg" alt="">
             <p class="card_text">Восьмёрка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(38)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/38.jpg" alt="">
             <p class="card_text">Девятка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(42)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/42.jpg" alt="">
             <p class="card_text">Десятка Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(47)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/47.jpg" alt="">
             <p class="card_text">Паж Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(74)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/74.jpg" alt="">
             <p class="card_text">Рыцарь Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(50)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/50.jpg" alt="">
             <p class="card_text">Дама Жезлов</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(60)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/60.jpg" alt="">
             <p class="card_text">Король Жезлов</p>
           </div>
@@ -173,59 +173,59 @@
       <div v-if="selectedNav === 2" class="selectedNav">
         <p class="head">Пентакли</p>
         <div class="card_container">
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(61)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/61.jpg" alt="">
             <p class="card_text">Туз Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(13)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/13.jpg" alt="">
             <p class="card_text">Двойка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(67)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/67.jpg" alt="">
             <p class="card_text">Тройка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(68)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/68.jpg" alt="">
             <p class="card_text">Четвёрка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(71)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/71.jpg" alt="">
             <p class="card_text">Пятёрка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(27)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/27.jpg" alt="">
             <p class="card_text">Шестёрка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(33)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/33.jpg" alt="">
             <p class="card_text">Семёрка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(37)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/37.jpg" alt="">
             <p class="card_text">Восьмёрка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(41)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/41.jpg" alt="">
             <p class="card_text">Девятка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(2)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/2.jpg" alt="">
             <p class="card_text">Десятка Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(76)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/76.jpg" alt="">
             <p class="card_text">Паж Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(4)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/4.jpg" alt="">
             <p class="card_text">Рыцарь Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(51)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/51.jpg" alt="">
             <p class="card_text">Дама Пентаклей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(58)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/58.jpg" alt="">
             <p class="card_text">Король Пентаклей</p>
           </div>
@@ -234,59 +234,59 @@
       <div v-if="selectedNav === 3" class="selectedNav">
         <p class="head">Кубки</p>
         <div class="card_container">
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(64)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/64.jpg" alt="">
             <p class="card_text">Туз Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(11)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/11.jpg" alt="">
             <p class="card_text">Двойка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(15)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/15.jpg" alt="">
             <p class="card_text">Тройка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(19)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/19.jpg" alt="">
             <p class="card_text">Четвёрка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(21)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/21.jpg" alt="">
             <p class="card_text">Пятёрка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(26)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/26.jpg" alt="">
             <p class="card_text">Шестёрка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(31)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/31.jpg" alt="">
             <p class="card_text">Семерка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(35)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/35.jpg" alt="">
             <p class="card_text">Восьмёрка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(39)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/39.jpg" alt="">
             <p class="card_text">Девятка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(43)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/43.jpg" alt="">
             <p class="card_text">Десятка Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(46)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/46.jpg" alt="">
             <p class="card_text">Паж Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(73)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/73.jpg" alt="">
             <p class="card_text">Рыцарь Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(72)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/72.jpg" alt="">
             <p class="card_text">Дама Кубков</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(57)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/57.jpg" alt="">
             <p class="card_text">Король Кубков</p>
           </div>
@@ -295,60 +295,60 @@
       <div v-if="selectedNav === 4" class="selectedNav">
         <p class="head">Мечи</p>
         <div class="card_container">
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(62)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/62.jpg" alt="">
             <p class="card_text">Туз Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(12)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/12.jpg" alt="">
             <p class="card_text">Двойка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(16)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/16.jpg" alt="">
             <p class="card_text">Тройка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(20)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/20.jpg" alt="">
             <p class="card_text">Четвёрка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(23)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/23.jpg" alt="">
             <p class="card_text">Пятёрка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(28)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/28.jpg" alt="">
             <p class="card_text">Шестёрка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(32)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/32.jpg" alt="">
             <p class="card_text">Семерка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(36)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/36.jpg" alt="">
             <p class="card_text">Восьмёрка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(40)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/40.jpg" alt="">
             <p class="card_text">Девятка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(44)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/44.jpg" alt="">
             <p class="card_text">Десятка Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(6)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/6.jpg" alt="">
             <p class="card_text">Паж Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(5)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/5.jpg" alt="">
             <p class="card_text">Рыцарь Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
+          <div class="card" @click="navigateToCard(7)">
             <img :class="{ subscribed: issubbed }" src="../../img/taro/7.jpg" alt="">
             <p class="card_text">Дама Мечей</p>
           </div>
-          <div class="card" @click="navigateToCard">
-            <img :class="{ subscribed: issubbed }" src="../../img/taro/3.jpg" alt="">
+          <div class="card" @click="navigateToCard(3)">
+            <img :class="{ subscribed: issubbed }" :src="'../../img/taro/3.jpg'" alt="">
             <p class="card_text">Король Мечей</p>
           </div>
         </div>
@@ -369,13 +369,13 @@ export default {
     selectNav(index) {
       this.selectedNav = index;
     },
-    navigateToCard() {
+    navigateToCard(cardNumber) {
       if (this.issubbed) {
-        this.$router.push('/card/significance');
+        this.$router.push('/card/significance/' + cardNumber);
       } else {
-        this.$router.push('/card/banned');
+        this.$router.push('/card/banned/' + cardNumber);
       }
-    }
+}
   },
   computed:{
     issubbed(){

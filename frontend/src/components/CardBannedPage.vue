@@ -1,9 +1,9 @@
 <template>
   <div class="main_page">
-    <p class="header">Дьявол</p>
+    <p class="header">{{name}}</p>
     <div class="main_container">
-      <img src="../../img/taro/1.jpg" alt="" class="">
-      <img src="../../img/taro/1.jpg" alt="" class="reverse">
+      <img :src="cardimage" alt="" class="">
+      <img :src="cardimage" alt="" class="reverse">
     </div>
     <div class="significance_container">
       <div class="header_container" @click="toggleModal">
@@ -44,14 +44,48 @@ export default {
   },
   data() {
     return {
-      isModalVisible: false
+      isModalVisible: false,
+      name:''
     };
+  },
+  computed: {
+    cardid() {
+      return this.$route.params.number;
+    },
+    cardimage() {
+      return require(`../../img/taro/${this.cardid}.jpg`);
+    }
   },
   methods: {
     toggleModal() {
       this.isModalVisible = !this.isModalVisible;
+    },
+    toggleContent(content) {
+      if (this.visibleContent === content) {
+        this.visibleContent = null;
+      } else {
+        this.visibleContent = content;
+      }
+    },
+    async get_mention() {
+      try {
+        const response = await this.$axios.get('/cards_info/', {
+          params: {
+            card: this.cardid
+          },
+          withCredentials: true,
+        });
+        console.log(response);
+        this.name = response.data.name
+      } catch (error) {
+        this.error = error;
+        console.error('Error fetching data:', error);
+      }
     }
   },
+  mounted() {
+    this.get_mention();
+  }
 
 }
 </script>
