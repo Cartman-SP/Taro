@@ -13,7 +13,8 @@
       <div class="ref_left">
         <p class="ref_text">Пригласить друзей</p>
       </div>
-      <p class="ref_balance">{{ subdays }} дней</p>
+      <p class="ref_balance" v-if="subdays>0">{{ subdays }} дней</p>
+      <p class="ref_balance" v-else> 0 дней</p>
     </div>
     <TariffModalPage :isVisible="isModalVisible" @close="toggleModal"/>
   </div>

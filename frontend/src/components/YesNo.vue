@@ -25,7 +25,7 @@
             <p class="significance_text">{{ answer }}</p>
           </div>
           <div class="significance">
-            <p class="significance_text">{{ answer }}</p>
+            <p class="significance_text">{{ opinion }}</p>
           </div>
         </div>
         
@@ -41,6 +41,7 @@
       return {
         cards: Array.from({ length: 9 }, () => ({ flipped: false, src: '' })),
         answer: '',
+        opinion: '',
         tarotImages: [
           require('../../img/taro/1.jpg'),
           require('../../img/taro/2.jpg'),
@@ -146,13 +147,14 @@
       },
       async revealAnswer(index) {
           try {
-            const response = await this.$axios.get('/day_card/', {
+            const response = await this.$axios.get('/yes_no/', {
               params: {
                 card: this.cards[index].src.split('/').pop().split('.')[0],
               },
               withCredentials: true,
             });
-            this.answer = response.data.answer
+            this.answer = response.data.info.answer
+            this.opinion = response.data.info.opinion
           }
           catch (error) {
           this.error = error;
