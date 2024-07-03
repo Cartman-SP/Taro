@@ -6,13 +6,13 @@
       </div>
       <div class="modal-body">
         <div class="tariff">
-          <button class="tariff_btn" @click="initiatePayment('weekly')">Недельный 100руб</button>
+          <button class="tariff_btn" @click="initiatePayment('weekly')">Недельный (7 дней) 100руб</button>
         </div>
         <div class="tariff">
-          <button class="tariff_btn" @click="initiatePayment('monthly')">Месячный 269руб</button>
+          <button class="tariff_btn" @click="initiatePayment('monthly')">Месячный (31 день) 269руб</button>
         </div>
         <div class="tariff">
-          <button class="tariff_btn" @click="initiatePayment('yearly')">Годовой 3000руб</button>
+          <button class="tariff_btn" @click="initiatePayment('yearly')">Годовой (12 месяцев) 3000руб</button>
         </div>
       </div>
     </div>
@@ -119,7 +119,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .tariff {

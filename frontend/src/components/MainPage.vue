@@ -11,8 +11,9 @@
           <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
         </div>
       </div>
-      <div class="matrix" @click="handleClick('/matrix')">
-        <p class="matrix_text">Матрица<br>судьбы</p>
+      <div class="matrix">
+        <p class="matrix_text">Матрица<br>судьбы<br></p>
+        <p class="matrix_text_text">(в разработке)</p>
         <div class="circle">
           <img src="../../img/next.svg" alt="">
         </div>
@@ -22,7 +23,7 @@
       <div class="taro bottom item" @click="handleClick('/yesno')">
         <p class="taro_text">Да / Нет</p>
         <img src="../../img/navigate_next.svg" alt="" class="navigate_img">
-<!--         <img src="../../img/item.png" alt="" class="items"> -->
+<!--         <img src="../../img/test1.png" alt="" class="items"> -->
       </div>
       <div class="natal bottom" @click="handleClick('/card')">
         <p class="natal_text">Значение<br> <span class="span_natal">карт</span></p>
@@ -83,7 +84,7 @@
       </div>
     </div>
     <div v-if="showNotification" class="notification">
-      <p>Лимит исчерпан</p>
+      <p>Лимит исчерпан (1/1)</p>
       <button @click="closeNotification" class="close-btn">×</button>
     </div>
   </div>
@@ -188,6 +189,13 @@ p {
   text-align: left;
   color: #FFFFFF;
 }
+.matrix_text_text {
+  font-family: Mulish Regular;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: left;
+  color: #FFFFFF;
+}
 .bottom{
   width: 37%;
 }
@@ -288,9 +296,10 @@ p {
   align-items: center;
 }
 .items{
+  width: 60%;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -3px;
+  left: 5px;
 }
 </style>
 
