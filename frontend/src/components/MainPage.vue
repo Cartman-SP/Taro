@@ -185,7 +185,7 @@ p {
 .taro_text, .natal_text, .matrix_text {
   font-family: Mulish Regular;
   font-size: 28px;
-  line-height: 32px;
+  line-height: 30px;
   text-align: left;
   color: #FFFFFF;
 }
