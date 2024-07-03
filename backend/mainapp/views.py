@@ -18,7 +18,7 @@ from .serializers import OrderSerializer
 import requests
 from django.conf import settings
 from .data import *
-
+from horoscopes.models import *
   
 
 
@@ -138,5 +138,9 @@ def cards_info(request):
     answer = tarot_cards[card]
     return Response({'info':answer,'name':name}, status=status.HTTP_200_OK)
 @api_view(['GET'])
+
 def get_goroscope_info(request):
-    return Response({'data':get_goroskop()[request.GET.get('sign')]}, status=status.HTTP_200_OK)
+    sign = request.GET.get('sign')
+    horoscope = Horoscope.objects.get(sign=sign)
+    serializer = HoroscopeSerializer(horoscope)
+    return Response({'data':HoroscopeSerializer(Horoscope.objects.get(sign = sign)).data}, status=status.HTTP_200_OK)

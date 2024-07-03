@@ -21,17 +21,17 @@ export default {
     return{
       data: '',
       sign:'',
+      ensign: '',
     }
   },
   mounted() {
   const route = useRoute();
-  const sign = ref(route.params.sign);
-  this.initializeData(sign);
+  this.ensign = ref(route.params.sign);
+  this.initializeData(this.ensign);
 },
 methods: {
-  async initializeData(sign) {
+  async initializeData() {
     try {
-      await this.getSign(sign);
       await this.getHoro();
     } catch (error) {
       console.error('Error initializing data:', error);
@@ -58,11 +58,13 @@ methods: {
     try {
       const response = await this.$axios.get('/get_goroscope_info/', {
         params: {
-          sign: this.sign,
+          sign: this.ensign,
         },
         withCredentials: true,
       });
-      this.data = response.data.answer;
+      console.log(response)
+      this.data = response.data.data.text;
+      
     } catch (error) {
       this.error = error;
       console.error('Error fetching data:', error);

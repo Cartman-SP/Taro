@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import *
-
+from horoscopes.models import *
 class TelegramUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = TelegramUser
@@ -21,3 +21,8 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'user', 'tariff', 'price', 'payment_id', 'is_paid']
+
+class HoroscopeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Horoscope
+        fields = '__all__'
