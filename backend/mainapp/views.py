@@ -53,7 +53,7 @@ def get_answer(request):
     for i in cards:
         chosen_cards += cards_names[int(i)] +', '
     chosen_cards = chosen_cards[:-2]
-    openai.api_key = 'sk-proj-BEVWbkncUcNAzzIdxPwvT3BlbkFJzLqcua9IhcUZAZ9ZJewO'
+    openai.api_key = 'sk-proj-gIywL2EHVCchhMVRShlPT3BlbkFJn6JZSgqWMFztSXI3XWsF'
     quest = 'сделай рассклад, вопрос на который хочу узнать ответ:' +question +' карты которые мне выпали:'+chosen_cards
     print(quest)
     try:
